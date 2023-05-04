@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { combineLatest, map, tap } from 'rxjs';
 
-import * as users from '../../state/user-list';
+import * as users from '../../state/user-list'; // users är ett lokalt namn och behöver därför inte vara så specifikt tycker jag
 
 @Component({
   selector: 'app-user-list',

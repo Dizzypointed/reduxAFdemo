@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest, map, switchMap, tap } from 'rxjs';
 import { userDetailsType } from 'src/app/services/mock-service';
-import * as user from '../../state/user-details';
-import * as users from '../../state/user-list';
+import * as user from '../../state/user-details'; // user är ett lokalt namn och behöver därför inte vara så specifikt tycker jag
+import * as users from '../../state/user-list'; // users är ett lokalt namn och behöver därför inte vara så specifikt tycker jag
 
 @Component({
   selector: 'app-user-details',

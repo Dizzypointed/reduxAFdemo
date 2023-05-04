@@ -14,6 +14,8 @@ export class EditFormComponent {
   }
   @Input()
   public set data(value: userDetailsType) {
+    // när data uppdateras i store sätts detta i formControls för att undvika onödig kontroll och uppdatering av data vid flera tillfällen
+    // detta ger en naturlig "rundgång" enl. pattern store -> control -> reducer -> store -> control..
     this.nameFC.setValue(value.name);
     this.ageFC.setValue(value.age);
     this.numberFC.setValue(value.favoriteNumber);

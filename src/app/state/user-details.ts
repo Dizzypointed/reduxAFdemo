@@ -10,8 +10,10 @@ import {
 } from '@ngrx/store';
 import { switchMap, map, tap } from 'rxjs';
 import { mockService, userDetailsType } from '../services/mock-service';
-import * as users from '../state/user-list';
+import * as users from '../state/user-list'; // users är ett lokalt namn och behöver därför inte vara så specifikt tycker jag
 
+// actions har generiska namn för enkelhetens skull och för att förenkla copy paste
+// scopet av den store man använder ger kontext vid användning ex. userDetails.load
 enum actions {
   load = '[userDetails] load',
   loadSuccess = '[userDetails] load success',
@@ -33,18 +35,21 @@ export const updateSuccess = createAction(
   props<{ payload: userDetailsType }>()
 );
 
+// Generiskt namn för att förenkla copypaste
 interface stateType {
   data: userDetailsType | undefined;
   isLoading: boolean;
   isLoaded: boolean;
 }
 
+// Generiskt namn för att förenkla copypaste
 const initialState: stateType = {
   data: undefined,
   isLoading: false,
   isLoaded: false,
 };
 
+// Generiskt namn för att förenkla copypaste
 export const reducer = createReducer<stateType>(
   initialState,
   on(load, (state) => ({ ...state, isLoading: true, isLoaded: false })),
@@ -58,7 +63,7 @@ export const reducer = createReducer<stateType>(
 );
 
 // selectors
-export const featureName = 'userDetails';
+export const featureName = 'userDetails'; // Generiskt namn för att förenkla copypaste
 
 const featureSelector = createFeatureSelector<stateType>(featureName);
 
@@ -81,6 +86,7 @@ export const data = createSelector(
 //effects
 @Injectable()
 export class Effects {
+  // Generiskt namn för att förenkla copypaste
   constructor(private actions$: Actions, private service: mockService) {}
 
   load$ = createEffect(() =>

@@ -15,6 +15,8 @@ import {
   userListType,
 } from '../services/mock-service';
 
+// actions har generiska namn för enkelhetens skull
+// scopet av den store man använder ger kontext vid användning ex. userList.load
 enum actions {
   load = '[userList] load',
   loadSuccess = '[userList] load success',
@@ -31,18 +33,21 @@ export const update = createAction(
   props<{ payload: userDetailsType }>()
 );
 
+// Generiskt namn för att förenkla copypaste
 interface stateType {
   data: userListType[];
   isLoading: boolean;
   isLoaded: boolean;
 }
 
+// Generiskt namn för att förenkla copypaste
 const initialState: stateType = {
   data: [],
   isLoading: false,
   isLoaded: false,
 };
 
+// Generiskt namn för att förenkla copypaste
 export const reducer = createReducer<stateType>(
   initialState,
   on(load, (state) => ({ ...state, isLoading: true, isLoaded: false })),
@@ -61,7 +66,7 @@ export const reducer = createReducer<stateType>(
 );
 
 // selectors
-export const featureName = 'userList';
+export const featureName = 'userList'; // Generiskt namn för att förenkla copypaste
 
 const featureSelector = createFeatureSelector<stateType>(featureName);
 
@@ -80,6 +85,7 @@ export const data = createSelector(featureSelector, (state) => state.data);
 //effects
 @Injectable()
 export class Effects {
+  // Generiskt namn för att förenkla copypaste
   constructor(private actions$: Actions, private service: mockService) {}
 
   load$ = createEffect(() =>
