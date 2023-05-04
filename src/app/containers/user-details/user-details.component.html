@@ -1,0 +1,6 @@
+<div class="spinner-border" role="status" *ngIf="waitingForData$ | async">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="card" *ngIf="!(waitingForData$ | async) && (data$ | async) as data">
+  <app-edit-form [data]="data" (save)="saveUser($event)"></app-edit-form>
+</div>

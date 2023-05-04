@@ -1,0 +1,8 @@
+<div class="spinner-border" role="status" *ngIf="waitingForData$ | async">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<ul class="list-group" *ngIf="!(waitingForData$ | async)">
+  <li class="list-group-item" *ngFor="let item of data$ | async">
+    <a [routerLink]="[item.id]">{{ item.name }}</a>
+  </li>
+</ul>

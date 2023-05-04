@@ -1,0 +1,42 @@
+<div class="card-body">
+  <h5 class="card-title">Användare id: {{ data.id }}</h5>
+  <form class="row g-3" [formGroup]="formGrp">
+    <div class="mb-3">
+      <label for="nameField" class="form-label">Namn</label>
+      <input
+        type="string"
+        formControlName="nameFC"
+        class="form-control"
+        id="nameField"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="ageFiled" class="form-label">Ålder</label>
+      <input
+        type="string"
+        formControlName="ageFC"
+        class="form-control"
+        id="ageFiled"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="numberFiled" class="form-label">Favoritnummer</label>
+      <input
+        type="string"
+        formControlName="numberFC"
+        class="form-control"
+        id="numberFiled"
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" (click)="submit()" class="btn btn-primary mb-3">
+        Spara
+      </button>
+    </div>
+    <div class="col-auto">
+      <a class="btn btn-primary" [routerLink]="['/users']" role="button"
+        >Tillbaka</a
+      >
+    </div>
+  </form>
+</div>
